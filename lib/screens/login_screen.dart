@@ -5,8 +5,10 @@ import 'package:eden_assessment/utils/widgets/asset_icon.dart';
 import 'package:eden_assessment/utils/widgets/custom_button.dart';
 import 'package:eden_assessment/utils/widgets/custom_sigin_button.dart';
 import 'package:eden_assessment/utils/widgets/custom_textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -95,14 +97,20 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               children: [
                 CustomSignInButton(
-                  onTap: () {},
+                  onTap: () async {
+                    final a = await signInWithGoogle();
+                    print(a.credential);
+                  },
                   title: "Google",
                 ),
                 SizedBox(
                   width: context.width(.03),
                 ),
                 CustomSignInButton(
-                  onTap: () {},
+                  onTap: () async {
+                    final a = await signInWithGitHub();
+                    print(a.credential);
+                  },
                   title: "Github",
                   iconType: "png",
                 )
@@ -111,18 +119,21 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: context.width(.15)),
             CustomContinueButton(
               onPressed: () async {
-                // try {
-                //   final credential = await FirebaseAuth.instance
-                //       .signInWithEmailAndPassword(
-                //           email: emailController.text.trim(),
-                //           password: passwordController.text.trim());
-                // } on FirebaseAuthException catch (e) {
-                //   if (e.code == 'user-not-found') {
-                //     print('No user found for that email.');
-                //   } else if (e.code == 'wrong-password') {
-                //     print('Wrong password provided for that user.');
-                //   }
-                // }
+                try {
+                  print("object");
+                  final credential = await FirebaseAuth.instance
+                      .signInWithEmailAndPassword(
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim());
+                  print(credential.user?.email);
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'user-not-found') {
+                    print('No user found for that email.');
+                  } else if (e.code == 'wrong-password') {
+                    print('Wrong password provided for that user.');
+                  }
+                  print(e.message);
+                }
               },
               title: "Log In",
             ),
@@ -149,5 +160,30 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       )),
     );
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  Future<UserCredential> signInWithGitHub() async {
+    // Create a new provider
+    GithubAuthProvider githubProvider = GithubAuthProvider();
+
+    return await FirebaseAuth.instance.signInWithProvider(githubProvider);
   }
 }

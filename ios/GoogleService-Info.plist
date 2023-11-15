@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>964263594375-rn35u52s9dsnniqg917v233v8ms43ifd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.964263594375-rn35u52s9dsnniqg917v233v8ms43ifd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDHSqvNNN5kvAVXdayouB144rQjc7ajBgg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>964263594375</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.edenAssessment</string>
+	<key>PROJECT_ID</key>
+	<string>eden-assessment-c0b31</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eden-assessment-c0b31.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:964263594375:ios:fadd9909a4e4feb705ab22</string>
+</dict>
+</plist>

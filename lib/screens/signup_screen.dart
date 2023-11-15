@@ -5,6 +5,7 @@ import 'package:eden_assessment/utils/widgets/asset_icon.dart';
 import 'package:eden_assessment/utils/widgets/custom_button.dart';
 import 'package:eden_assessment/utils/widgets/custom_sigin_button.dart';
 import 'package:eden_assessment/utils/widgets/custom_textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -111,21 +112,22 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(height: context.width(.15)),
             CustomContinueButton(
               onPressed: () async {
-                // try {
-                //   final credential = await FirebaseAuth.instance
-                //       .createUserWithEmailAndPassword(
-                //     email: emailController.text.trim(),
-                //     password: passwordController.text.trim(),
-                //   );
-                // } on FirebaseAuthException catch (e) {
-                //   if (e.code == 'weak-password') {
-                //     print('The password provided is too weak.');
-                //   } else if (e.code == 'email-already-in-use') {
-                //     print('The account already exists for that email.');
-                //   }
-                // } catch (e) {
-                //   print(e);
-                // }
+                try {
+                  final credential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                  );
+                  print(credential.user?.email);
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
               },
               title: "Create Account",
             ),
