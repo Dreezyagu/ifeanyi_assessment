@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "964263594375",
+    "project_id": "eden-assessment-c0b31",
+    "storage_bucket": "eden-assessment-c0b31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964263594375:android:bfb91a8e7d5d63d905ab22",
+        "android_client_info": {
+          "package_name": "com.example.eden_assessment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964263594375-esssakvh1hsfg48o1bu7e0n0oa7gqb3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eden_assessment",
+            "certificate_hash": "d6a2f41487beadf8f45e788a4a2e364c91c2ee4b"
+          }
+        },
+        {
+          "client_id": "964263594375-egdlu9sbg5p785f87u2jlkp5kd374du5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJYKcGGdE0FPnapJoLn2bSjnDOLP8d0W4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964263594375-egdlu9sbg5p785f87u2jlkp5kd374du5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "964263594375-rn35u52s9dsnniqg917v233v8ms43ifd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.edenAssessment"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

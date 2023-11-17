@@ -24,7 +24,7 @@ class CustomSnackbar {
       SnackBarBehavior snackBarBehavior = SnackBarBehavior.floating}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.grey600,
         behavior: snackBarBehavior,
         elevation: 50,
         duration: Duration(milliseconds: milliseconds),
@@ -67,7 +67,7 @@ class SnackbarContent extends StatelessWidget {
         Text(
           subtitle,
           style: TextStyle(
-            color: AppColors.black,
+            color: AppColors.white,
             fontSize: context.width(.037),
           ),
         ),
