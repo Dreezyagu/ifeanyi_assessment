@@ -1,11 +1,10 @@
 import 'package:ably_flutter/ably_flutter.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class TrackOrderProvider extends StateNotifier<int> {
   TrackOrderProvider(super.state);
 
-  setUpAbly(VoidCallback refresh) {
+  setUpAbly() {
     final clientOptions = ClientOptions(
         key: 'zZgLiw.TgBwTw:9m1QhhlD1AgAjhnFA8BA-CpfM0ZX6gvDAvlhUzmkSAw');
     Realtime realtime = Realtime(options: clientOptions);
@@ -26,8 +25,6 @@ class TrackOrderProvider extends StateNotifier<int> {
           state = newIndex;
         }
       });
-
-      // Handle connection state change events
     });
   }
 }
